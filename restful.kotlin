@@ -1,0 +1,10 @@
+import io.ktor.client.*
+import io.ktor.client.request.*
+
+suspend fun main() {
+    val client = HttpClient()
+    val post = client.get<Post>("https://jsonplaceholder.typicode.com/posts/1")
+    println(post)
+}
+
+data class Post(val userId: Int, val id: Int, val title: String, val body: String)
